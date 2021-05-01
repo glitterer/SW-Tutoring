@@ -1,7 +1,6 @@
 #include <iostream>
 #include "list.h"
 using namespace std;
-
 void LinkedList::Append(int data) // List의 마지막에 새로운 data에 대한 Node 추가
 {
 	//노드생성
@@ -13,11 +12,13 @@ void LinkedList::Append(int data) // List의 마지막에 새로운 data에 대�
 	if (head == NULL) { 
 		head = newNode; 
 	}
-	else { 
-		newNode->next = head;
-		head = newNode;
+	else {
+		Node* temp = head;
+		while (temp->next != NULL) {
+			temp = temp->next;
+		}
+		temp->next = newNode;
 	}
-	
 }
 
 int LinkedList::Length() // List에 있는 Node의 수를 return
@@ -33,10 +34,11 @@ int LinkedList::Length() // List에 있는 Node의 수를 return
 //거꾸로 출력되는 오류가 발생... 1 2 3->3 2 1로 출력됨
 void LinkedList::Print() // List에 있는 모든 Node를 head부터 순서대로 출력되어야 함
 {
-	while (head != NULL)
+	Node* temp = head;
+	while (temp != NULL)
 	{
-		cout << head->data << " "; //디버깅 할 때, 계속 여기서 문제가 발생(length()도 마찬가지...0xccccc오류)
-		head = head->next;
+		cout << temp->data << " "; //디버깅 할 때, 계속 여기서 문제가 발생(length()도 마찬가지...0xccccc오류)
+		temp = temp->next;
 	}
 }
 

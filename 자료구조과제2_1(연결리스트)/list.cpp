@@ -13,7 +13,7 @@ void LinkedList::Append(int data) // List의 마지막에 새로운 data에 대�
 		head = newNode; 
 	}
 	else {
-		Node* temp = head;
+		Node* temp = head;		
 		while (temp->next != NULL) {
 			temp = temp->next;
 		}
@@ -24,8 +24,10 @@ void LinkedList::Append(int data) // List의 마지막에 새로운 data에 대�
 int LinkedList::Length() // List에 있는 Node의 수를 return
 {
 	int i = 0;
+	cout << endl;
 	while (head != NULL) {
 		i++;
+		
 		head = head->next;
 	}
 	return i;

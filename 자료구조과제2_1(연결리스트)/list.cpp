@@ -33,7 +33,6 @@ int LinkedList::Length() // List에 있는 Node의 수를 return
 	return i;
 }
 
-//거꾸로 출력되는 오류가 발생... 1 2 3->3 2 1로 출력됨
 void LinkedList::Print() // List에 있는 모든 Node를 head부터 순서대로 출력되어야 함
 {
 	Node* temp = head;
